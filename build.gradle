@@ -1,0 +1,39 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+  version = '0.1.0'
+}
+repositories {
+  jcenter()
+  mavenCentral()
+}
+
+dependencies {
+
+  compile("org.springframework.boot:spring-boot-starter-web") {
+    exclude module: "spring-boot-starter-tomcat"
+  }
+  compile "org.springframework.boot:spring-boot-starter-jetty"
+  compile "org.springframework.boot:spring-boot-starter-actuator"
+  compile "org.codehaus.groovy.modules.http-builder:http-builder:0.6"
+  compile "com.fasterxml.jackson.module:jackson-module-mrbean:2.6.1"
+  compile 'org.codehaus.groovy:groovy-all:2.4.4'
+  compile 'com.offbytwo.jenkins:jenkins-client:0.3.1'
+  testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+  testCompile 'junit:junit:4.12'
+}
+task wrapper(type: Wrapper) {
+  gradleVersion = "2.7"
+}

@@ -1,0 +1,78 @@
+[{
+  "name": "test",
+  "address": "http://abc.com",
+  "username": "abc",
+  "password": "efk",
+  "jobs": [
+    {
+      "status": "success",
+      "in_progress": true,
+      "name": "test_0",
+      "display_name": "Test Name 0",
+      "self_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local",
+      "is_buildable": true,
+      "last_success_build": 1443514478875,
+      "last_success_build_number": 1924,
+      "last_success_build_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/lastSuccessfulBuild",
+      "last_failure_build": 1443513478875,
+      "last_failure_build_number": 1915,
+      "last_failure_build_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/lastFailedBuild",
+      "last_duration": 120000,
+      "build_trigger_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/build"
+    },
+    {
+      "status": "success",
+      "in_progress": false,
+      "name": "test_1",
+      "display_name": "Test Name 1",
+      "self_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local",
+      "is_buildable": true,
+      "last_success_build": 1443518908875,
+      "last_success_build_number": 1924,
+      "last_success_build_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/lastSuccessfulBuild",
+      "last_failure_build": 1443512478875,
+      "last_failure_build_number": 1915,
+      "last_failure_build_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/lastFailedBuild",
+      "last_duration": 122200,
+      "build_trigger_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/build"
+    },
+    {
+      "status": "success",
+      "in_progress": true,
+      "name": "test_2",
+      "display_name": "Test Name 2",
+      "self_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local",
+      "is_buildable": true,
+      "last_success_build": 1443514598875,
+      "last_success_build_number": 1924,
+      "last_success_build_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/lastSuccessfulBuild",
+      "last_failure_build": 1443514508875,
+      "last_failure_build_number": 1915,
+      "last_failure_build_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/lastFailedBuild",
+      "last_duration": 144200,
+      "build_trigger_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/build"
+    },
+    {
+      "status": "success",
+      "in_progress": true,
+      "name": "test_3",
+      "display_name": "Test Name 3",
+      "self_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local",
+      "is_buildable": true,
+      "last_success_build": 1443515578875,
+      "last_success_build_number": 1924,
+      "last_success_build_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/lastSuccessfulBuild",
+      "last_failure_build": 1443514528875,
+      "last_failure_build_number": 1915,
+      "last_failure_build_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/lastFailedBuild",
+      "last_duration": 123300,
+      "build_trigger_link": "http://muc-srvci1:18080/view/Core/view/Core%20(master)/view/Jobs/job/core-master-api-local/build"
+    }
+  ]
+},
+{
+  "name": "test1",
+  "address": "http://abc.com",
+  "username": "abc",
+  "password": "efk"
+}]

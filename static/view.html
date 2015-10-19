@@ -1,0 +1,70 @@
+<div class="page-header">
+    <form name="hostAdding">
+        <input  name="hostName" type="text" ng-model="host.name" required placeholder="Host Name" />
+        <input  name="hostAddress"  type="url" type="text" ng-model="host.address" required placeholder="Host Address" />
+        <button class="pull-right btn btn-primary" ng-disabled="hostAdding.$invalid" ng-click="addHost(host);host={}"><i class="glyphicon glyphicon-plus"></i>Add Host</button>
+        <a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>
+    </form>
+</div>
+<div gridster="gridsterOptions">
+	<ul>
+		<li gridster-item="host" ng-repeat="host in dashboard.hosts">
+			<div class="box" ng-controller="CustomWidgetCtrl" style="overflow:hidden">
+				<div class="box-header">
+					<h3>{{ host.name }}</h3>
+					<div class="box-header-btns pull-right">
+						<a title="settings" ng-click="openSettings(host)"><i class="glyphicon glyphicon-cog"></i></a>
+						<a title="Remove widget" ng-click="remove(host)"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>
+				</div>
+				<div class="box-content">
+                    <table width="100%">
+                        <tr>
+                            <td width="100%" >
+                                <angucomplete id="ex1"
+                                              placeholder="Search Job"
+                                              pause="1000"
+                                              selectedobject="selectJob"
+                                              url="/job/find?jenkinsName={{ host.name }}&s="
+                                              titlefield="name"
+                                              minlength="1"
+                                              inputclass="form-control form-control-small">
+                                </angucomplete></td>
+                            <td><button type="submit" class="pull-right btn btn-primary" ng-click="addJob(host, selectJob)"><i class="glyphicon glyphicon-plus"></i>Add Job</button></td>
+                        </tr>
+                    </table>
+
+                    <table class="table" ts-wrapper>
+                        <thead>
+                        <tr>
+                            <th>S</th>
+                            <th ts-criteria="displayName|lowercase" ts-default>Name</th>
+                            <th ts-criteria="lastSuccessfulBuild.timestamp|parseInt">Last Success</th>
+                            <th ts-criteria="lastSuccessfulBuild.number|parseInt">Num Last Success</th>
+                            <th ts-criteria="lastUnsuccessfulBuild.timestamp|parseInt">Last Failure</th>
+                            <th ts-criteria="lastUnsuccessfulBuild.number|parseInt">Num Last Failure</th>
+                            <th ts-criteria="lastBuild.duration|parseInt">Last Duration</th>
+                            <th>Do Build</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr ng-repeat="job in host.jobs" ts-repeat>
+                            <td><img ng-if="job.lastBuild.building" src="\img\status\{{job.lastBuild.status}}.gif" height="32" width="32"><img ng-if="!job.lastBuild.building" src="\img\status\{{job.lastBuild.status}}.png" height="32" width="32"></td>
+                            <td> <a ng-if="job.buildable" href="{{job.url}}"> {{job.displayName}} </a> </td>
+                            <td> {{job.lastSuccessfulBuild.timestamp | timeago}} </td>
+                            <td> <a href="{{job.lastSuccessfulBuild.url}}" > {{job.lastSuccessfulBuild.number}} </a> </td>
+                            <td> {{job.lastUnsuccessfulBuild.timestamp | timeago}}</td>
+                            <td> <a href="{{job.lastUnsuccessfulBuild.url}}" > {{job.lastUnsuccessfulBuild.number}} </a> </td>
+                            <td ng-if="job.lastBuild.building"> </td>
+                            <td ng-if="!job.lastBuild.building"> {{job.lastBuild.duration | millSecondsToTimeString}} </td>
+                            <td> <a ng-if="job.buildable" href="{{job.url}}/build?delay=0sec" > [build] </a> </td>
+                            <td><a class="pull-right btn btn-warning" ng-click="removeJob(host, job)"><i class="glyphicon glyphicon-trash"></i></td>
+                        </tr>
+                        </tbody>
+                    </table>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
